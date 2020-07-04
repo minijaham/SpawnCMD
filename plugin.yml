@@ -1,5 +1,5 @@
 name: SpawnCMD
-main: minijaham\Spawn\Main
+main: minijaham\SpawnCMD\Main
 version: 1.0
 api: [3.0.0]
 author: minijaham
