@@ -1,0 +1,9 @@
+name: SpawnCMD
+main: minijaham\Spawn\Main
+version: 1.0
+api: [3.0.0]
+author: minijaham
+
+commands:
+  spawn:
+    description: "Teleport back to spawn!"
