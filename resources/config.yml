@@ -1,4 +1,8 @@
+---
 # Message that sends when teleporting to the default spawn
 onteleport: "§7(§a!§7)§a Successfully teleported to spawn!"
 # Error message that sends when the command is executed in console
 useingame: "§cThis command can only be executed in-game"
+# Force TP to spawn when join? Options: true | false
+forcespawn: "false"
+...
