@@ -24,14 +24,21 @@ class Main extends PluginBase implements Listener {
         switch($cmd->getName()) {
             case "spawn":
                 if($sender instanceof Player){
-                    $sender->sendMessage($this->config["onteleport"]);
                     $sender->teleport($spawn);
-                    return true;
-  	         } else {
-                    $s->sendMessage($this->config["useingame"]);
-                    return true;
-  	    }
+			 if($this->config["title"] === "on"){
+				$sender->addTitle($this->config["titlemessage"]);
+			 }
+			 if($this->config["message"] === "on"){
+                    	 	$sender->sendMessage($this->config["sendmessage"]);
+			        }
+			 if($this->config["actionbar"] === "on"){
+                    	 	$sender->sendTip($this->config["actionbarmessage"]);
+			 }
+  	            } else {
+                    	$s->sendMessage($this->config["useingame"]);
+  	            }
         }
+        return true;
     }
     public function forceSpawn(PlayerLoginEvent $event){
         if ($this->config["forcespawn"] === "true")
