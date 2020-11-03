@@ -25,45 +25,45 @@ class Main extends PluginBase implements Listener {
             case "spawn":
                 if($sender instanceof Player){
                     $sender->teleport($spawn);
-			        if($this->config["title"] === "on"){
-			            $sender->addTitle($this->config["titlemessage"]);
-		           	}
-			        if($this->config["message"] === "on"){
-                        $sender->sendMessage($this->config["sendmessage"]);
-			        }
-			        if($this->config["actionbar"] === "on"){
-                        $sender->sendTip($this->config["actionbarmessage"]);
-			        }
-			        if($this->config["clearinventory"] === "on"){
-				        $removed = 0;
+			 if($this->config["title"] === "on"){
+			        $sender->addTitle($this->config["titlemessage"]);
+		         }
+			 if($this->config["message"] === "on"){
+                         	$sender->sendMessage($this->config["sendmessage"]);
+			 }
+			 if($this->config["actionbar"] === "on"){
+                        	$sender->sendTip($this->config["actionbarmessage"]);
+			 }
+			 if($this->config["clearinventory"] === "on"){
+				$removed = 0;
         		        foreach ($sender->getInventory()->getContents() as $index => $item) {
-            	            $sender->getInventory()->setItem($index, Item::get(Item::AIR));
-            		        $removed++;
+            	            		$sender->getInventory()->setItem($index, Item::get(Item::AIR));
+            		       		$removed++;
         		        }
-			        }
-			        if($this->config["cleararmor"] === "on"){
-			            $sender->getArmorInventory()->clearAll();
-			        }
-			        if($this->config["cleareffect"] === "on"){
-                        foreach($sender->getEffects() as $effect) {
-			            	$sender->removeEffect($effect->getId());
-                        }
-			        }
-			        if($this->config["clearbadeffect"] === "on"){
-			            foreach($sender->getEffects() as $effect) {
-                            if($effect->getType()->isBad()) {
-                                $sender->removeEffect($effect->getId());
-                            }
-			            }
-			        }
-  	            } else {
-                    $sender->sendMessage($this->config["useingame"]);
-  	            }
+			 }
+			 if($this->config["cleararmor"] === "on"){
+			        $sender->getArmorInventory()->clearAll();
+			 }
+			 if($this->config["cleareffect"] === "on"){
+                         	foreach($sender->getEffects() as $effect) {
+			               $sender->removeEffect($effect->getId());
+                         	}
+			 }
+			 if($this->config["clearbadeffect"] === "on"){
+			        foreach($sender->getEffects() as $effect) {
+                                	if($effect->getType()->isBad()) {
+                                	$sender->removeEffect($effect->getId());
+                            	}
+			 }
+		  }
+  	      } else {
+                  $sender->sendMessage($this->config["useingame"]);
+  	     }
         }
         return true;
     }
     public function forceSpawn(PlayerLoginEvent $event){
         if ($this->config["forcespawn"] === "true")
-        $event->getPlayer()->teleport($this->getServer()->getDefaultLevel()->getSafeSpawn());
-    }
+        	$event->getPlayer()->teleport($this->getServer()->getDefaultLevel()->getSafeSpawn());
+   	 }
 }
