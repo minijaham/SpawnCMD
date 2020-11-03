@@ -16,4 +16,13 @@ sendmessage: "§7(§a!§7)§a Successfully teleported to spawn!"
 useingame: "§cThis command can only be executed in-game"
 # Force TP to spawn when join?
 forcespawn: "false"
+# ====================================== #
+# Clear inventory on command? (on/off)
+clearinventory: "off"
+# Clear armors on command? (on/off)
+cleararmor: "off"
+# Clear all effects on command? (on/off)
+cleareffect: "off"
+# Clear only bad effects on command? (on/off) (cleareffect has to be off)
+clearbadeffect: "off"
 ...
