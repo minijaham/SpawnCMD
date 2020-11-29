@@ -9,6 +9,7 @@ use pocketmine\item\Item;
 use pocketmine\Player;
 use pocketmine\event\Listener;
 use pocketmine\event\player\PlayerLoginEvent;
+use pocketmine\event\player\PlayerDropItemEvent;
 
 class Main extends PluginBase implements Listener {
     /** @var string[] */
@@ -63,7 +64,8 @@ class Main extends PluginBase implements Listener {
         return true;
     }
     public function forceSpawn(PlayerLoginEvent $event){
-        if ($this->config["forcespawn"] === "true")
+        if ($this->config["forcespawn"] === "true"){
         	$event->getPlayer()->teleport($this->getServer()->getDefaultLevel()->getSafeSpawn());
    	 }
+    }
 }
